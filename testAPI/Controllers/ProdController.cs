@@ -39,17 +39,19 @@ namespace testAPI.Controllers
                 productRepository.Add(prod);
         }
 
-        public void Put(int id,[FromBody]Product prod)
+        [HttpPut]
+        public void Put([FromBody]Product prod)
         {
-            prod.ID = id;
+            //prod.ID = id;
             if (ModelState.IsValid)
                 productRepository.Update(prod);
         }
 
-        [HttpDelete]
-        public void Delete(int id)
+        [HttpPost]
+        [Route("delete")]
+        public void Delete([FromBody] Product prod)
         {
-            productRepository.Delete(id);
+            productRepository.Delete(prod.ID);
         }
     }
 }

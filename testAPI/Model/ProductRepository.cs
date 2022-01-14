@@ -69,7 +69,7 @@ namespace testAPI.Model
         {
             using (IDbConnection dbConnection = Connection)
             {
-                string sQuery = @"UPDATE Product SET ProductName=@Name,Quantity=@Quantity,Price=@Price WHERE ID=@Id";
+                string sQuery = @"UPDATE Product SET ProductName=@ProductName,Quantity=@Quantity,Price=@Price WHERE ID=@Id";
                 dbConnection.Open();
                 dbConnection.Query(sQuery,prod);
             }
